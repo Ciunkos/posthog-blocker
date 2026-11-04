@@ -1,0 +1,23 @@
+{
+  "name": "posthog-blocker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Browser extension that stops PostHog analytics, including first-party proxies and bundled SDKs.",
+  "license": "MIT",
+  "author": "Przemysław Zalewski <ciunkos@gmail.com>",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test test/patterns.test.mjs",
+    "test:e2e": "node --test test/e2e.test.mjs",
+    "icons": "node scripts/icons.mjs",
+    "sri": "node scripts/sri-hashes.mjs",
+    "zip": "node scripts/zip.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.60.0",
+    "posthog-js": "^1.441.2"
+  }
+}

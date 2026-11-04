@@ -1,0 +1,20 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Renamed SDK files with SRI</title>
+<script>window.__results = {}</script>
+<!-- control: a known-good hash must still run -->
+<script src="/assets/ok.js" integrity="{{OK}}" crossorigin="anonymous"></script>
+<!-- posthog-js dist/array.js under a neutral name, in the HTML -->
+<script src="/assets/a1.js" integrity="{{ARRAY}}" crossorigin="anonymous"></script>
+<script>
+  window.__results.afterHtml = typeof window.__PosthogExtensions__
+  // posthog-js dist/array.full.js under a neutral name, added from JS
+  const s = document.createElement('script')
+  s.src = '/assets/b2.js'
+  s.crossOrigin = 'anonymous'
+  s.integrity = '{{FULL}}'
+  s.onerror = () => { window.__results.dynamicError = true }
+  s.onload = () => { window.__results.dynamicLoad = true }
+  document.head.appendChild(s)
+  setTimeout(() => { window.__results.afterDynamic = typeof window.__PosthogExtensions__ }, 600)
+</script>

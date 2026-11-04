@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Official PostHog snippet</title>
+<script>
+  // The array.js loader as published in PostHog's docs, pointed at an api_host the test can see.
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once unregister identify alias reset getFeatureFlag isFeatureEnabled onFeatureFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_TestTokenForPostHogBlockerFixtures000000000', { api_host: 'http://eu.i.posthog.com:' + location.port })
+  posthog.capture('fixture loaded')
+  window.__results = {
+    blocked: window.posthog.__blocked === true,
+    flag: window.posthog.isFeatureEnabled('anything'),
+    scripts: [...document.scripts].map(s => s.src).filter(Boolean)
+  }
+  posthog.onFeatureFlags(flags => { window.__results.flagsCallback = Array.isArray(flags) })
+</script>

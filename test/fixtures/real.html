@@ -1,0 +1,17 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Real posthog-js, bundled, through a custom proxy path</title>
+<button id="b">click</button>
+<script type="module">
+  // posthog-js/dist/module.js served from a neutral path, the way an app bundle ships it
+  import posthog from '/lib/sdk.mjs'
+  posthog.init('phc_TestTokenForPostHogBlockerFixtures000000000', {
+    api_host: location.origin + '/zz9',
+    persistence: 'memory',
+    capture_pageview: true,
+    request_batching: false
+  })
+  posthog.capture('real event', { a: 1 })
+  document.getElementById('b').click()
+  window.__ready = true
+</script>

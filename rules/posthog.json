@@ -1,0 +1,116 @@
+[
+  {
+    "id": 1,
+    "priority": 100,
+    "action": { "type": "allowAllRequests" },
+    "condition": {
+      "requestDomains": ["posthog.com"],
+      "resourceTypes": ["main_frame", "sub_frame"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 100,
+    "action": { "type": "allow" },
+    "condition": { "initiatorDomains": ["posthog.com"] }
+  },
+  {
+    "id": 10,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": { "requestDomains": ["i.posthog.com", "app.posthog.com"] }
+  },
+  {
+    "id": 11,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "requestDomains": ["us.posthog.com", "eu.posthog.com"],
+      "resourceTypes": ["script", "xmlhttprequest", "ping", "image", "other"]
+    }
+  },
+  {
+    "id": 20,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "regexFilter": "/(?:static|array)/(?:[0-9]+\\.[0-9]+\\.[0-9]+/)?(?:array(?:\\.full)?(?:\\.no-external)?|recorder(?:-v2)?|lazy-recorder|posthog-recorder)(?:\\.min)?\\.js(?:[?#]|$)",
+      "resourceTypes": ["script", "xmlhttprequest", "other"]
+    }
+  },
+  {
+    "id": 21,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "regexFilter": "/posthog(?:[._-][A-Za-z0-9._-]*)?\\.m?js(?:[?#]|$)",
+      "resourceTypes": ["script", "xmlhttprequest", "other"]
+    }
+  },
+  {
+    "id": 22,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "regexFilter": "/posthog-js(?:@[^/]*)?/",
+      "resourceTypes": ["script", "xmlhttprequest", "other"]
+    }
+  },
+  {
+    "id": 23,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": { "urlFilter": "/vendor/posthog/" }
+  },
+  {
+    "id": 24,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": { "regexFilter": "[/=]phc_[A-Za-z0-9]{30,}" }
+  },
+  {
+    "id": 30,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "regexFilter": "^https?://[^/]+/(?:[^?#]*/)?(?:e|s|i/v0/e|i/v1/(?:logs|metrics)|batch|engage|capture|track)/?\\?(?:[^#]*&)?(?:compression=(?:gzip-js|base64)|_=[0-9]{13}|sent_at=[0-9]|ver=1\\.[0-9]|retry_count=[0-9]|ip=[01])",
+      "resourceTypes": ["xmlhttprequest", "ping", "image", "other"]
+    }
+  },
+  {
+    "id": 31,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "regexFilter": "^https?://[^/]+/(?:[^?#]*/)?(?:flags|decide)/?\\?(?:[^#]*&)?v=[0-9]",
+      "resourceTypes": ["xmlhttprequest", "ping", "other"]
+    }
+  },
+  {
+    "id": 32,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "regexFilter": "[?&]compression=gzip-js(?:&|#|$)",
+      "resourceTypes": ["xmlhttprequest", "ping", "image", "other"]
+    }
+  },
+  {
+    "id": 33,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "regexFilter": "/(?:ingest|ph|_ph|phog|posthog|ph-proxy|phproxy)/(?:e|s|i/v0/e|i/v1/[a-z]+|flags|decide|batch|engage|capture|static|array)(?:/|\\?|$)"
+    }
+  },
+  {
+    "id": 40,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "regexFilter": "^https?://[^/]+/(?:[^?#]*/)?ph/",
+      "requestDomains": ["ciunkos.com", "przemyslawzalewski.com", "przemyslawzalewski.pl"],
+      "resourceTypes": ["script", "xmlhttprequest", "ping", "other"]
+    }
+  }
+]

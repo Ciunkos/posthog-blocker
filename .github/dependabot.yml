@@ -1,0 +1,28 @@
+# Weekly dependency PRs, only for releases public for at least 7 days.
+# posthog-js keeps the e2e tests on a current SDK; its hashes come from .github/workflows/sri.yml.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '07:00'
+      timezone: Europe/Warsaw
+    cooldown:
+      default-days: 7
+      semver-major-days: 14
+    open-pull-requests-limit: 3
+    groups:
+      dev:
+        patterns:
+          - '*'
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '07:00'
+      timezone: Europe/Warsaw
+    cooldown:
+      default-days: 7

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <title>PostHog Blocker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="../icons/icon-48.png" alt="" width="32" height="32">
+    <h1>PostHog Blocker</h1>
+  </header>
+
+  <label class="row">
+    <span>Block PostHog everywhere</span>
+    <input type="checkbox" id="enabled" role="switch">
+  </label>
+
+  <label class="row" id="site-row">
+    <span>Pause on <b id="host">this site</b></span>
+    <input type="checkbox" id="paused" role="switch">
+  </label>
+
+  <section class="counts" aria-live="polite">
+    <div><strong id="network">0</strong><span>network</span></div>
+    <div><strong id="page">0</strong><span>in page</span></div>
+  </section>
+
+  <details id="details">
+    <summary>Blocked on this page</summary>
+    <ol id="recent"></ol>
+    <p class="hint" id="empty">Nothing yet.</p>
+  </details>
+
+  <p class="hint" id="reload" hidden>Reload the page to apply.</p>
+  <script src="popup.js" type="module"></script>
+</body>
+</html>

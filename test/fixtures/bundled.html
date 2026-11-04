@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Bundled SDK through custom proxies</title>
+<script>
+  const TOKEN = 'phc_TestTokenForPostHogBlockerFixtures000000000'
+  const event = JSON.stringify({ event: '$pageview', properties: { token: TOKEN, distinct_id: 'u1' } })
+  const results = (window.__results = {})
+  const xhr = (url, body) => new Promise(resolve => {
+    const x = new XMLHttpRequest()
+    x.open('POST', url)
+    x.onload = () => resolve({ status: x.status, text: x.responseText })
+    x.onerror = () => resolve({ status: 'error' })
+    x.send(body)
+  })
+  window.__done = Promise.all([
+    // URL fingerprint on a custom path
+    fetch('/x7k2/e/?compression=gzip-js&_=' + Date.now(), { method: 'POST', body: 'binary' }).then(r => r.json()).then(j => { results.fingerprint = j }),
+    fetch('/a/b/flags/?v=2', { method: 'POST', body: '{}' }).then(r => r.json()).then(j => { results.flags = j }),
+    // body only: nothing in the URL says PostHog
+    xhr('/custom/collect', event).then(r => { results.xhrBody = r }),
+    fetch('/relay/batch-anything', { method: 'POST', body: new Blob([event], { type: 'application/json' }) }).then(r => r.text()).then(t => { results.blobBody = t }),
+    fetch(new Request('/relay/request-body', { method: 'POST', body: event })).then(r => r.text()).then(t => { results.requestBody = t }),
+    Promise.resolve(navigator.sendBeacon('/t/track', event)).then(ok => { results.beacon = ok }),
+    // controls that must reach the server
+    fetch('/api/data?x=1').then(r => r.text()).then(t => { results.controlFetch = t }),
+    xhr('/api/save', JSON.stringify({ comment: 'we use posthog', id: 7 })).then(r => { results.controlXhr = r })
+  ])
+</script>

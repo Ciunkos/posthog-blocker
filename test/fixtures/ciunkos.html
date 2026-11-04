@@ -1,0 +1,22 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>ciunkos.com-style loader</title>
+<script>
+  // The shape of ciunkos.com/src/analytics.js startPostHog(): bail out when __SV is set.
+  const p = window.posthog || []
+  window.posthog = p
+  window.__results = { bailed: Boolean(p.__SV) }
+  if (!p.__SV) {
+    const script = document.createElement('script')
+    script.src = '/vendor/posthog/1.439.0-f32a5541/posthog.js'
+    document.head.appendChild(script)
+  }
+  // a direct request through the hire Worker proxy, as a bundled SDK would send it
+  fetch('/hire/ph/e/?compression=gzip-js&_=' + Date.now(), { method: 'POST', body: new Blob([new Uint8Array([31, 139, 8])]) })
+    .then(r => r.text()).then(t => { window.__results.proxy = t })
+  // SDK script added without the stub check, as an inlined loader might
+  const direct = document.createElement('script')
+  direct.src = '/vendor/posthog/1.439.0-f32a5541/posthog.js?direct'
+  direct.onerror = () => { window.__results.vendorBlocked = true }
+  document.head.appendChild(direct)
+</script>
