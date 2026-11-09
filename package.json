@@ -18,6 +18,6 @@
   },
   "devDependencies": {
     "playwright": "^1.60.0",
-    "posthog-js": "^1.441.2"
+    "posthog-js": "^1.444.0"
   }
 }
