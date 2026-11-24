@@ -1,5 +1,47 @@
 {
  "npm": {
+  "1.454.3": {
+   "published": "2026-11-24",
+   "files": {
+    "array.full.es5.js": {
+     "sha256": "ZTumhp4zPNgn4Ay8Zjg4/y0OSyhm88tFtTcx1ALVEy4="
+    },
+    "array.full.js": {
+     "sha256": "XNzll0iNsKRbu4SBTa5QBOgG6YceEJF9dK7hebe5oRc=",
+     "sha384": "I9pMtvuHTflf6FS0QNQ6vfDDTdGfsvL6OzL9ZgaIlYjv+kmBqB8feGM6Io99ou0n",
+     "sha512": "xdPEo6WwgSiFJAeaH4w9blD/tQqjequICwWECiHJdLKqWH6zBWmh2VMOrQ2ekrO5WKox7uTmi0baL0+FqEnX0A=="
+    },
+    "array.full.no-external.js": {
+     "sha256": "wKDuihGrN/2RUL+Yq7PujdjzyY4AGK2ssaE5e8vSt1M=",
+     "sha384": "Y7lNnM1820LmBlN6OiRXb3FqtHaaqjiLhbRhn7G61x6vaNhJqx7/3wT3QxI7Elro",
+     "sha512": "T7xZ+Dp7l+2Lmyt8V0FdhbXp/TKroF5tuCR65Te56IQMB/iSJxAeTjQKfHhsW+3FX4RsBtcxPg7LaggyBfOgFg=="
+    },
+    "array.js": {
+     "sha256": "xx7qsjDuuqJrrCwCA/PrX+bLsjLRgDbHhtetRryfAzU=",
+     "sha384": "hYkahNF+/O6JsjnQGBhXAb66yDjzK3i0dRZsdCQZY4GhHjyW/dowtYJ9UlQmn0/B",
+     "sha512": "y4VbdqQXPqbWisCCGbsuOFgyUzWI7teWWMd9pcwyTUIS1HZnBRUHfUF4eoBJi6llGpGJclGCL/MtkGGA01losQ=="
+    },
+    "array.no-external.js": {
+     "sha256": "WcZWq1wWpQPlETpqGK5H6B8lUtbaZjkRszZP+r9VNpE=",
+     "sha384": "Kz351m9DxYE32CZ5yhUPqbbrO4R4L0unHswY7D8yfm6+ShFuMie7EBv6fxdm9HWq",
+     "sha512": "V03AdHB9kfBPz96USBuH8siug6oSQg7Yl8At2OUj+k1SR5sBbhl1jsQ5clgtuxcXLJkoHcAl1nR89ggTszSSFQ=="
+    },
+    "lazy-recorder.js": {
+     "sha256": "xYDBeVoRIqB/g9tmEShlPmUMM6/YqMm+QvMVbxR6ksM=",
+     "sha384": "Te8cuDShRHbhm0cwnZ4KQ7T/mJYtHJKzU6fZLCHKQqT5JZVJTdbbpJE2oaw9hJYv",
+     "sha512": "zKT77lD0ScGojcxxxqDdGAsu9pJtghg+vNExNU7rXEhW6IioSI264WhMq1o8Du3jvuEaco3a1K9FeQFKaigmEw=="
+    },
+    "posthog-recorder.js": {
+     "sha256": "/3ZCWEa6eQxa4ZaeoLFonGGpb/kLlWVenCaz+8cvlP0="
+    },
+    "recorder.js": {
+     "sha256": "wM4dXn/Mee6ekdB0iuwAjsR7UeeSfJCPc98Yxr2pbG0="
+    },
+    "recorder-v2.js": {
+     "sha256": "Xu0yVt9WJYuLny4Lze30eVgWnscjIOYQElD3kBjm2qQ="
+    }
+   }
+  },
   "1.454.2": {
    "published": "2026-11-23",
    "files": {
@@ -20536,6 +20578,7 @@
  "own": {
   "ciunkos.com 1.439.0": "sha384-9cdELCHBZKXBrGGEvTYpbKRdte+z15fWeLn58mKiFfp/Yu/QMvyVR/EehTNBMk2P",
   "ciunkos.com 1.439.0-f32a5541": "sha384-7tPSHdDbq6CQO0xfuWHqd7w3VefViVXx4eNX/PX8SqAeaMolupVqzMIf22ryGp40",
-  "ciunkos.com 1.447.12-bbbb5008": "sha384-IBA0uRheUBlvsEAOo1zvgDPAQF2LUqKUqU+WHGnRjrM6uw7n/UnJMOaroUGIb6XI"
+  "ciunkos.com 1.447.12-bbbb5008": "sha384-IBA0uRheUBlvsEAOo1zvgDPAQF2LUqKUqU+WHGnRjrM6uw7n/UnJMOaroUGIb6XI",
+  "ciunkos.com 1.450.1-9196e51e": "sha384-ONiomoF/qZxHolDrzwwQcOoHF43rVR/WWyMGT0gjyFuedmt8/aTjd2QdWdM+7BLY"
  }
 }
